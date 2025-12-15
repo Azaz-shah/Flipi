@@ -10,7 +10,9 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
+//Routes
 app.use("/api/users", require("./Routes/user.route"));
+app.use("api/listings", require("./Routes/listing.route"));
 app.listen(PORT, () => {
     console.log(`Server is  listening at http://localhost:${PORT}`);
 });

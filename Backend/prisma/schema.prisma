@@ -22,3 +22,18 @@ model User {
   updatedAt DateTime @updatedAt
 }
 
+model Listing {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  title String
+  plateform String 
+  userName String
+  category String
+  followers Int
+  Engagement_Rate BigInt
+  impression Int
+  country String
+  age Int
+  price Int
+  description String
+}
+
