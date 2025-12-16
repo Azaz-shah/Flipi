@@ -1,6 +1,9 @@
+import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
 
+
 const Navbar = () => {
+
 
     return (
         <div className="h-20 w-full bg-white  border-b-1 flex items-center justify-evenly" >
@@ -12,8 +15,8 @@ const Navbar = () => {
                     <li>
                         <Link to="/">Home</Link>
                     </li>
-                    <li>
-                        Marketplace
+                    <li className="cursor-pointer ">
+                        <Link to="/marketplace">Marketplace</Link>
                     </li>
                     <li>
                         Messages
