@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
 
@@ -8,9 +8,9 @@ const Navbar = () => {
                 <h1><span className="text-purple-700">Flip</span>earn<span className="text-4xl text-purple-700">.</span></h1>
             </div>
             <div className=" text-md font-semibold flex flex-row items-center justify-center gap-5" >
-                <ul className="flex flex-row gap-8 cursor-pointer" >
+                <ul className="flex flex-row gap-8 text-gray-500 cursor-pointer" >
                     <li>
-                        Home
+                        <Link to="/">Home</Link>
                     </li>
                     <li>
                         Marketplace
@@ -19,7 +19,7 @@ const Navbar = () => {
                         Messages
                     </li>
                     <li>
-                        My Listing
+                        My Listings
                     </li>
 
                 </ul>
@@ -28,7 +28,7 @@ const Navbar = () => {
 
             </div>
             <div className="cursor-pointer">
-                <button className="bg-red-600 h-10 w-10 rounded-full font-bold cursor-pointer ">A</button>
+                <button className="bg-amber-600 h-10 w-10 rounded-full font-bold cursor-pointer ">A</button>
             </div>
         </div>
     )
