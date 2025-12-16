@@ -22,7 +22,7 @@ const Navbar = () => {
                         Messages
                     </li>
                     <li>
-                        My Listings
+                        <Link to="/mylisting">My Listing</Link>
                     </li>
 
                 </ul>
