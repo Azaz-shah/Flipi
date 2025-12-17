@@ -82,8 +82,8 @@ const marketplace = () => {
             </div>
 
             <div className="flex flex-row gap-4">
-                <div className="h-100 w-70  border-1 rounded-xl ml-10 mt-5 ">
-                    <div className="h-15 w-full flex flex-row justify-between items-center p-4 border-b-1 bg-white">
+                <div className="h-100 w-70  border border-gray-300 rounded-xl ml-10 mt-5 ">
+                    <div className="h-15 w-full flex flex-row justify-between items-center p-4 border border-gray-300 bg-white">
                         <div className="flex flex-row gap-2 text-xl items-center p-4">
                             <CiFilter className="text-2xl" />
                             <h4 className="text-md font-semibold">Filters</h4>
@@ -93,7 +93,7 @@ const marketplace = () => {
                         </div>
                     </div>
                     <div className="flex items-center justify-center mt-4">
-                        <input className="border-1 h-10 w-60 rounded text-sm p-3 " type="text" placeholder="Search by username ,plateform" />
+                        <input className="border border-gray-300 h-10 w-60 rounded text-sm p-3 " type="text" placeholder="Search by username ,plateform" />
                     </div>
 
                     <div className="mt-3 p-4">
@@ -248,10 +248,10 @@ const marketplace = () => {
                 <div>
 
                     <div className="flex flex-row items-center gap-6 ">
-                        <div className="bg-white border p-6  border-gray-900 h-70 rounded-xl  w-100 mt-5">
+                        <div className="bg-white  p-6  border border-gray-300 h-70 rounded-xl  w-100 mt-5">
                             <div className="flex flex-row justify-between">
                                 <div className="flex flex-row items-center gap-2">
-                                    <button className="bg-gray-100 flex items-center justify-center h-10 w-10">
+                                    <button className="bg-gray-200 flex items-center justify-center h-10 w-10">
                                         <FaTiktok />
                                     </button>
                                     <div className="flex flex-col ">
@@ -293,10 +293,10 @@ const marketplace = () => {
                             </div>
 
                         </div>
-                        <div className="bg-white border p-6  border-gray-900 h-70 rounded-xl  w-100 mt-5">
+                        <div className="bg-white  p-6  border border-gray-300 h-70 rounded-xl  w-100 mt-5">
                             <div className="flex flex-row justify-between">
                                 <div className="flex flex-row items-center gap-2">
-                                    <button className="bg-gray-100 flex items-center justify-center h-10 w-10">
+                                    <button className="bg-gray-200 flex items-center justify-center h-10 w-10">
                                         <FaTiktok />
                                     </button>
                                     <div className="flex flex-col ">
@@ -340,10 +340,10 @@ const marketplace = () => {
                         </div>
                     </div>
                     <div className="flex flex-row items-center gap-6 ">
-                        <div className="bg-white border p-6  border-gray-900 h-70 rounded-xl  w-100 mt-5">
+                        <div className="bg-white border border-gray-300 p-6   h-70 rounded-xl  w-100 mt-5">
                             <div className="flex flex-row justify-between">
                                 <div className="flex flex-row items-center gap-2">
-                                    <button className="bg-gray-100 flex items-center justify-center h-10 w-10">
+                                    <button className="bg-gray-200 flex items-center justify-center h-10 w-10">
                                         <FaTiktok />
                                     </button>
                                     <div className="flex flex-col ">
@@ -385,7 +385,7 @@ const marketplace = () => {
                             </div>
 
                         </div>
-                        <div className="bg-white border p-6  border-gray-900 h-70 rounded-xl  w-100 mt-5">
+                        <div className="bg-white border border-gray-300 p-6   h-70 rounded-xl  w-100 mt-5">
                             <div className="flex flex-row justify-between">
                                 <div className="flex flex-row items-center gap-2">
                                     <button className="bg-gray-100 flex items-center justify-center h-10 w-10">

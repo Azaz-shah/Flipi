@@ -30,7 +30,7 @@ const Navbar = () => {
                         <Link to="/marketplace">Marketplace</Link>
                     </li>
                     <li>
-                        Messages
+                        <Link to="/messages">Messages</Link>
                     </li>
                     <li>
                         <Link to="/mylisting">My Listing</Link>
@@ -55,7 +55,7 @@ const Navbar = () => {
                             <div className='flex flex-row items-center justify-start p-2 mt-3 gap-3 border-b-1'>
                                 <div className='' >
                                     <button
-                                        className="bg-amber-600 h-10 w-10 rounded-full font-bold cursor-pointer hover:bg-amber-700 transition-colors"
+                                        className="bg-amber-900 h-5 w-5 rounded-full font-bold cursor-pointer hover:bg-amber-700 transition-colors"
                                     >
                                         A
                                     </button>

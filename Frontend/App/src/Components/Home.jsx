@@ -25,7 +25,7 @@ const Home = () => {
             </div>
 
             <div className="flex flex-col gap-5">
-                <div className="bg-white border p-6  border-gray-900 h-70 rounded-xl  w-200 mt-5">
+                <div className="bg-white border p-6  border-gray-300 h-70 rounded-xl  w-200 mt-5">
                     <div className="flex flex-row justify-between">
                         <div className="flex flex-row items-center gap-2">
                             <button className="bg-gray-100 flex items-center justify-center h-10 w-10">
@@ -70,7 +70,7 @@ const Home = () => {
                     </div>
 
                 </div>
-                <div className="bg-white border p-6  border-gray-900 h-70 rounded-xl  w-200 mt-5">
+                <div className="bg-white border p-6  border-gray-300 h-70 rounded-xl  w-200 mt-5">
                     <div className="flex flex-row justify-between">
                         <div className="flex flex-row items-center gap-2">
                             <button className="bg-gray-100 flex items-center justify-center h-10 w-10">
@@ -115,7 +115,7 @@ const Home = () => {
                     </div>
 
                 </div>
-                <div className="bg-white border p-6  border-gray-900 h-70 rounded-xl  w-200 mt-5">
+                <div className="bg-white border p-6  border-gray-300 h-70 rounded-xl  w-200 mt-5">
                     <div className="flex flex-row justify-between">
                         <div className="flex flex-row items-center gap-2">
                             <button className="bg-gray-100 flex items-center justify-center h-10 w-10">
