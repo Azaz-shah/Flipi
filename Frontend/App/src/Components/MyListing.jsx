@@ -1,4 +1,5 @@
 import React from "react"
+import { useNavigate } from "react-router-dom";
 import { FaPlus } from "react-icons/fa";
 import { FaRegEye } from "react-icons/fa";
 import { SiReactivex } from "react-icons/si";
@@ -17,6 +18,7 @@ import { IoTrashOutline } from "react-icons/io5";
 import { FaRegEdit } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 const MyListing = () => {
+    const navigate = useNavigate();
     return (
         <div>
             <div className="p-20 flex flex-row items-center justify-between ">
@@ -24,7 +26,7 @@ const MyListing = () => {
                     <h1 className="text-3xl font-bold">My Listings</h1>
                     <h4 className="text-md font-semibold">Manage your social media account listings</h4>
                 </div>
-                <div className="flex flex-row items-center justify-center gap-2 text-white rounded bg-blue-500 h-10 w-40">
+                <div onClick={() => navigate("/addlisting")} className="flex flex-row items-center justify-center gap-2 text-white rounded bg-blue-500 h-10 w-40">
                     <FaPlus />
                     <button className="text-md font-semibold cursor-pointer  ">Add Listing</button>
                 </div>
