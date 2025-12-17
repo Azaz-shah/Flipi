@@ -77,7 +77,7 @@ const MyListing = () => {
             </div>
 
             <div className="border border-gray-200 flex flex-row items-center  h-35 mt-7 w-260 ml-40">
-                <div className="bg-white border border-gray-200 rounded flex flex-row items-center justify-between p-4 h-15 w-70 ml-10">
+                <div className="bg-white border cursor-pointer border-gray-200 rounded flex flex-row items-center justify-between p-4 h-15 w-70 ml-10">
                     <div className="flex felx-row gap-2 items-center justify-center">
                         <MdOutlineAccountBalanceWallet className="text-2xl" />
                         <h1 className="text-lg font-semibold">Earned</h1>
@@ -87,7 +87,7 @@ const MyListing = () => {
                     </div>
                 </div>
 
-                <div className="bg-white border border-gray-200 rounded flex flex-row items-center justify-between p-4 h-15 w-70 ml-10">
+                <div className="bg-white border cursor-pointer border-gray-200 rounded flex flex-row items-center justify-between p-4 h-15 w-70 ml-10">
                     <div className="flex felx-row gap-2 items-center justify-center">
                         <PiHandWithdraw className="text-2xl" />
                         <h1 className="text-lg font-semibold">Withdrawn</h1>
@@ -97,7 +97,7 @@ const MyListing = () => {
                     </div>
                 </div>
 
-                <div className="bg-white border border-gray-200 rounded flex flex-row items-center justify-between p-4 h-15 w-70 ml-10">
+                <div className="bg-white border cursor-pointer border-gray-200 rounded flex flex-row items-center justify-between p-4 h-15 w-70 ml-10">
                     <div className="flex felx-row gap-2 items-center justify-center">
                         <CgUnavailable className="text-2xl" />
                         <h1 className="text-lg font-semibold">Avaliable</h1>

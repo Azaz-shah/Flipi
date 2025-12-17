@@ -2,6 +2,7 @@ import React from 'react'
 import "./index.css"
 import { Routes, Route } from "react-router-dom";
 import Navbar from './Components/Navbar'
+import Footer from './Components/Footer'
 import Home from './Components/Home';
 import MarketPlace from "./Components/MarketPlace"
 import MyListing from "./Components/MyListing"
@@ -20,7 +21,7 @@ const App = () => {
         <Route path="/addlisting" element={<AddListing />} />
         <Route path="/messages" element={<Messages />} />
       </Routes>
-
+      <Footer />
 
     </div>
   )
