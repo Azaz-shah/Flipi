@@ -10,17 +10,19 @@ import AddListing from './Components/AddListing';
 import Messages from "./Components/Messages"
 const App = () => {
   return (
-    <div className='h-screen w-full bg-white text-black'>
+    <div className='min-h-screen w-full bg-white text-black flex flex-col'>
       <Navbar />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/marketplace" element={<MarketPlace />} />
-        <Route path="/mylisting" element={<MyListing />} />
-        <Route path="/listings" element={<MyListing />} />
-        <Route path="/addlisting" element={<AddListing />} />
-        <Route path="/messages" element={<Messages />} />
-      </Routes>
+      <div className="flex-1">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/marketplace" element={<MarketPlace />} />
+          <Route path="/mylisting" element={<MyListing />} />
+          <Route path="/listings" element={<MyListing />} />
+          <Route path="/addlisting" element={<AddListing />} />
+          <Route path="/messages" element={<Messages />} />
+        </Routes>
+      </div>
       <Footer />
 
     </div>

@@ -55,7 +55,7 @@ const AddListing = () => {
         setSelectedFiles(prev => prev.filter((_, i) => i !== index));
     }
     return (
-        <div className=" h-200 ml-40 mt-10 w-200">
+        <div className="ml-40 mt-10 w-200 pb-10">
             <div>
                 <h1 className="text-3xl font-semibold">List Your Account</h1>
                 <p className="text-md font-medium mt-3 text-gray-400">Create a mock listing to display your account info</p>
