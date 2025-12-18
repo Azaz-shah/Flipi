@@ -5,3 +5,5 @@ build/
 prisma/dev.db
 
 /generated/prisma
+
+/AI Dev VT NodeJS Standards v4

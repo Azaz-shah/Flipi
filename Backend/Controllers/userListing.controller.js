@@ -347,7 +347,7 @@ const getListById = async (req, res) => {
 const getListingsByPlatform = async (req, res) => {
     try {
         const { platform } = req.params
-        const listings = await prisma.Listing.findMany({
+        const listings = await prisma.listing.findMany({
             where: {
                 plateform: platform
             }

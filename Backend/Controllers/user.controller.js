@@ -1,6 +1,7 @@
 const express = require('express');
 const prisma = require("../prisma/index")
 const bcrypt = require('bcrypt');
+const crypto = require("crypto");
 const jwt = require('jsonwebtoken');
 
 require("dotenv").config();
@@ -131,4 +132,61 @@ const getUserById = async (req, res) => {
     }
 }
 
-module.exports = { userCreation, userLogin, getAllUsers, getUserById }
+const forgetPassword = async () => {
+    try {
+        const { email } = req.body;
+
+        const user = await prisma.user.findUnique({
+            where: {
+                email
+            }
+        })
+        if (!user) {
+            throw new Error("User not found")
+        }
+
+        //generate Token
+
+        const resetToken = crypto.randomBytes(32).toString("hex");
+
+        //Hash token before saving
+
+        const hashedToken = crypto.createHash("sha256").update(resetToken).digest("hex");
+
+        //save Token + expriry
+
+        await prisma.user.update({
+            where: {
+                email
+            },
+            data: {
+                resetToken: hashedToken,
+                resetTokenExpiry: Date.now() + 10 * 60 * 1000
+            }
+        })
+
+        //Create Reset Url
+        const resetUrl = " "
+
+        console.log("Reset url", resetUrl)
+        res.json({ message: "Password reset link sent" });
+
+
+    } catch (error) {
+        res.status(400).json({
+            status: "fail",
+            message: error.message
+        })
+
+    }
+}
+
+const resetPassword = () => {
+    try {
+
+    } catch (error) {
+
+    }
+}
+
+module.exports = { userCreation, userLogin, getAllUsers, resetPassword, forgetPassword, getUserById }
