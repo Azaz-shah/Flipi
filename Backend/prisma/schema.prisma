@@ -29,7 +29,7 @@ model Listing {
   userName String
   category String
   followers Int
-  Engagement_Rate BigInt
+  Engagement_Rate Float
   impression Int
   country String
   age Int
