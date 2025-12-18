@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const { consumeListings } = require('./services/queue/consumer');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -13,6 +14,9 @@ app.get('/', (req, res) => {
 //Routes
 app.use("/api/users", require("./Routes/user.route"));
 app.use("/api/listings", require("./Routes/user.listing"));
+
+// Start queue worker
+consumeListings().catch(console.error);
 
 app.listen(PORT, () => {
     console.log(`Server is  listening at http://localhost:${PORT}`);

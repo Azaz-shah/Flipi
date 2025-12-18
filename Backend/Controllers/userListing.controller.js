@@ -1,4 +1,18 @@
 const prisma = require("../prisma/index")
+const connectRabbitMQ = require("../services/queue/connection")
+const redisClient = require("../services/queue/redisClient")
+
+//Sending to queue
+const sendToQueue = async (listing) => {
+    try {
+        const channel = await connectRabbitMQ()
+        await channel.assertQueue('listing')
+        channel.sendToQueue('listing', Buffer.from(JSON.stringify(listing)))
+        console.log('Listing sent to queue:', listing.id)
+    } catch (error) {
+        console.error('Queue error:', error.message)
+    }
+}
 
 const createListing = async (req, res) => {
     try {
@@ -16,7 +30,7 @@ const createListing = async (req, res) => {
             description
         } = req.body
 
-        const listing = await prisma.Listing.create({
+        const listing = await prisma.listing.create({
             data: {
                 title,
                 plateform,
@@ -31,6 +45,12 @@ const createListing = async (req, res) => {
                 description
             }
         })
+
+        // Clear cache after creating new listing
+        await redisClient.del("listings:all")
+
+        // Send to queue after successful creation
+        await sendToQueue(listing)
 
         res.status(201).json({
             status: "success",
@@ -60,6 +80,43 @@ const totalListing = async (req, res) => {
             status: "success",
             data: {
                 listing
+            }
+        })
+    } catch (error) {
+        res.status(400).json({
+            status: "fail",
+            message: error.message
+        })
+    }
+}
+
+const getAllListings = async (req, res) => {
+    try {
+
+        const cachedKey = "listings:all";
+        const cachedListings = await redisClient.get(cachedKey);
+
+        if (cachedListings) {
+            return res.status(200).json({
+                status: "success",
+                data: {
+                    listings: JSON.parse(cachedListings)
+                }
+            });
+        }
+        const listings = await prisma.listing.findMany()
+
+        await redisClient.setEx(
+            cachedKey,
+            60,
+            JSON.stringify(listings)
+        );
+
+
+        res.status(200).json({
+            status: "success",
+            data: {
+                listings
             }
         })
     } catch (error) {
@@ -158,6 +215,10 @@ const deleteListing = async (req, res) => {
                 id: req.params.id
             }
         })
+
+        // Clear cache after deletion
+        await redisClient.del("listings:all")
+
         res.status(200).json({
             status: "success",
             data: {
@@ -189,7 +250,7 @@ const updateListing = async (req, res) => {
             description
         } = req.body
 
-        const list = await prisma.Listing.update({
+        const list = await prisma.listing.update({
             where: {
                 id: req.params.id
             },
@@ -207,6 +268,10 @@ const updateListing = async (req, res) => {
                 description
             }
         })
+
+        // Clear cache after update
+        await redisClient.del("listings:all")
+
         res.status(200).json({
             status: "success",
             data: {
@@ -311,5 +376,14 @@ module.exports = {
     updateListing,
     filterListings,
     getListById,
+    getAllListings,
     getListingsByPlatform
 }
+//     totalValue,
+//     deleteListing,
+//     updateListing,
+//     filterListings,
+//     getListById,
+//     getAllListings,
+//     getListingsByPlatform
+// }
