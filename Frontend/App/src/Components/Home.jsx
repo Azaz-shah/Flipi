@@ -14,7 +14,7 @@ const Home = () => {
                 </h4>
 
                 <div className="h-13 rounded border-gray-200 flex items-center justify-between  w-120 border-2 mt-10">
-                    <input className="p-4 text-sm" type="text" placeholder="Search Account" />
+                    <input className="p-4 text-sm outline-none" type="text" placeholder="Search Account" />
                     <button className="bg-purple-600 cursor-pointer text-sm text-white font-semibold h-10 w-25 rounded mr-2">Search</button>
                 </div>
             </div>

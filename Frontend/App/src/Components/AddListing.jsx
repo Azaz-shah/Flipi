@@ -67,7 +67,7 @@ const AddListing = () => {
                 <div className="mt-4 flex flex-row gap-6 ">
                     <div className="flex flex-col">
                         <label className="text-sm font-semibold">Listing Title *</label>
-                        <input className="h-10 w-85 border border-gray-300 rounded mt-2 p-4" type="text" placeholder="Account Name" />
+                        <input className="h-10 w-85 border outline-none border-gray-300 rounded mt-2 p-4" type="text" placeholder="Account Name" />
                     </div>
                     <div className="flex flex-col relative">
                         <label className="text-sm font-semibold">Platform *</label>
@@ -106,7 +106,7 @@ const AddListing = () => {
                 <div className="mt-4 flex flex-row gap-6 ">
                     <div className="flex flex-col">
                         <label className="text-sm font-semibold">Username/Handle *</label>
-                        <input className="h-10 w-85 border border-gray-300 rounded mt-2 p-4" type="text" placeholder="Account Name" />
+                        <input className="h-10 w-85 border outline-none border-gray-300 rounded mt-2 p-4" type="text" placeholder="Account Name" />
                     </div>
                     <div className="flex flex-col relative">
                         <label className="text-sm font-semibold">Niche/Category *</label>
@@ -149,7 +149,7 @@ const AddListing = () => {
                 <div className="mt-4 flex flex-row gap-6 ">
                     <div className="flex flex-col">
                         <label className="text-sm font-semibold"> Followers Count *</label>
-                        <input className="h-10 w-55 border border-gray-300 rounded mt-2 p-4" type="number" placeholder="10000" />
+                        <input className="h-10 w-55 border outline-none border-gray-300 rounded mt-2 p-4" type="number" placeholder="10000" />
                     </div>
                     <div className="flex flex-col">
                         <label className="text-sm font-semibold"> Engagement Rate (%)</label>
@@ -157,20 +157,20 @@ const AddListing = () => {
                     </div>
                     <div className="flex flex-col">
                         <label className="text-sm font-semibold"> Monthly Views/Impressions *</label>
-                        <input className="h-10 w-55 border border-gray-300 rounded mt-2 p-4" type="number" placeholder="10000" />
+                        <input className="h-10 w-55 border outline-none border-gray-300 rounded mt-2 p-4" type="number" placeholder="10000" />
                     </div>
                 </div>
 
                 <div className="mt-4 flex flex-row gap-6 ">
                     <div className="flex flex-col">
                         <label className="text-sm font-semibold">Primary Audience Country</label>
-                        <input className="h-10 w-85 border border-gray-300 rounded mt-2 p-4" type="text" placeholder="United States" />
+                        <input className="h-10 w-85 border outline-none border-gray-300 rounded mt-2 p-4" type="text" placeholder="United States" />
                     </div>
                     <div className="flex flex-col relative">
                         <label className="text-sm font-semibold">Primary Audience Age Range</label>
                         <div className="relative">
                             <input
-                                className="h-10 w-85 border border-gray-300 rounded mt-2 p-4 pr-10 cursor-pointer"
+                                className="h-10 w-85 border outline-none border-gray-300 rounded mt-2 p-4 pr-10 cursor-pointer"
                                 type="text"
                                 value={selectedAudience}
                                 placeholder="Select...."
@@ -216,7 +216,7 @@ const AddListing = () => {
                 <div className="mt-4 flex flex-row gap-6 ">
                     <div className="flex flex-col">
                         <label className="text-sm font-semibold">Asking Price (USD) *</label>
-                        <input className="h-10 w-180 border border-gray-300 rounded mt-2 p-4" type="number" placeholder="100:00" />
+                        <input className="h-10 w-180 border outline-none border-gray-300 rounded mt-2 p-4" type="number" placeholder="100:00" />
                     </div>
 
                 </div>
@@ -224,7 +224,7 @@ const AddListing = () => {
                 <div className="mt-4 flex flex-row gap-6 ">
                     <div className="flex flex-col">
                         <label className="text-sm font-semibold">Description *</label>
-                        <textarea className="h-40 w-180 border border-gray-300 rounded mt-2 p-4" type="text" />
+                        <textarea className="h-40 w-180 outline-none border border-gray-300 rounded mt-2 p-4" type="text" />
                     </div>
 
                 </div>

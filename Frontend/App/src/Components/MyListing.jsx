@@ -19,6 +19,19 @@ import { FaRegEdit } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 const MyListing = () => {
     const navigate = useNavigate();
+
+    const deleteList = () => {
+  
+
+    }
+
+    const editList = () => {
+
+    }
+
+    const updateList = () => {
+
+    }
     return (
         <div>
             <div className="p-20 flex flex-row items-center justify-between ">
@@ -147,13 +160,13 @@ const MyListing = () => {
                         <p className="">usd</p>
                     </div>
                     <div className="px-6 flex flex-row gap-2 items-center ">
-                        <div className="border border-gray-200 flex cursor-pointer items-center rounded-xl justify-center h-9 w-12">
+                        <div onClick={deleteList} className="border border-gray-200 flex cursor-pointer items-center rounded-xl justify-center h-9 w-12">
                             <IoTrashOutline className="text-xl" />
                         </div>
-                        <div className="border border-gray-200 flex cursor-pointer items-center rounded-xl justify-center h-9 w-12">
+                        <div onClick={editList} className="border border-gray-200 flex cursor-pointer items-center rounded-xl justify-center h-9 w-12">
                             <FaRegEdit className="text-xl" />
                         </div>
-                        <div className="border border-gray-200 flex cursor-pointer items-center rounded-xl justify-center h-9 w-12">
+                        <div onClick={updateList} className="border border-gray-200 flex cursor-pointer items-center rounded-xl justify-center h-9 w-12">
                             <FaEyeSlash className="text-xl" />
                         </div>
                     </div>
