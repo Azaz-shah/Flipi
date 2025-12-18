@@ -1,4 +1,5 @@
 const listing_data_repository = require('../data_repositories/listing.data_repository');
+const email_service = require('../utils/email.service');
 const redis = require('../_core_app_connectivities/redis');
 const rabbitmq_ops = require('../_core_app_connectivities/rabbitmq');
 
@@ -7,7 +8,7 @@ class listing_service {
         console.log("FILE: listing.service.js | constructor | Service initialized");
     }
 
-    async create_listing(listing_data) {
+    async create_listing(listing_data, user_info = null) {
         try {
             console.log(`FILE: listing.service.js | create_listing | Creating listing: ${listing_data.title}`);
             
@@ -18,6 +19,14 @@ class listing_service {
             
             // Send to queue for processing
             await rabbitmq_ops.send_to_queue('listing', listing);
+            
+            // Send listing notification email (non-blocking)
+            if (user_info && user_info.email && user_info.name) {
+                email_service.send_listing_notification(user_info.email, user_info.name, listing.title)
+                    .catch(error => {
+                        console.error(`FILE: listing.service.js | create_listing | Failed to send listing notification:`, error);
+                    });
+            }
             
             console.log(`FILE: listing.service.js | create_listing | Listing created successfully: ${listing.id}`);
             return listing;
