@@ -8,6 +8,7 @@ import MarketPlace from "./Components/MarketPlace"
 import MyListing from "./Components/MyListing"
 import AddListing from './Components/AddListing';
 import Messages from "./Components/Messages"
+import Dashboard from './Components/Dashboard';
 const App = () => {
   return (
     <div className='min-h-screen w-full bg-white text-black flex flex-col'>
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="/listings" element={<MyListing />} />
           <Route path="/addlisting" element={<AddListing />} />
           <Route path="/messages" element={<Messages />} />
+          <Route path = "/dashboard" element={<Dashboard />} />
         </Routes>
       </div>
       <Footer />

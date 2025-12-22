@@ -14,7 +14,9 @@ const Navbar = () => {
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
     }
-
+    const handleDashboard = () => {
+        navigate('/dashboard')
+    }
 
     return (
         <div className="h-20 w-full bg-white  border-b-1 flex items-center justify-evenly" >
@@ -37,7 +39,7 @@ const Navbar = () => {
                     </li>
 
                 </ul>
-                <button className="h-8 text-white font-semibold w-30 rounded-2xl bg-blue-600">Dashboard</button>
+                <button onClick={handleDashboard} className="h-8 cursor-pointer text-white font-semibold w-30 rounded-2xl bg-blue-600">Dashboard</button>
 
 
             </div>
