@@ -1,6 +1,6 @@
 const express = require('express');
 const listing_controller = require('../controllers/listing.controller');
-const validation_middleware = require("../Middlewares/validation.middleware");
+const validation_middleware = require("../Middlewares/validation.middleware")
 const auth_middleware = require('../middlewares/auth.middleware');
 
 const router = express.Router();
@@ -85,8 +85,8 @@ const router = express.Router();
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.post('/', 
-    auth_middleware.authenticate,
+router.post('/createListing',
+    // auth_middleware.authenticate,
     validation_middleware.validate_listing_creation,
     listing_controller.create_listing
 );
@@ -121,7 +121,7 @@ router.post('/',
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.get('/', listing_controller.get_all_listings);
+router.get('/allListings', listing_controller.get_all_listings);
 
 /**
  * @swagger
@@ -192,7 +192,7 @@ router.get('/', listing_controller.get_all_listings);
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.get('/filter', 
+router.get('/filter',
     validation_middleware.validate_listing_filter,
     listing_controller.filter_listings
 );
@@ -365,7 +365,7 @@ router.get('/:id', listing_controller.get_listing_by_id);
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.put('/:id', 
+router.put('/:id',
     auth_middleware.authenticate,
     validation_middleware.validate_listing_update,
     listing_controller.update_listing
@@ -400,7 +400,7 @@ router.put('/:id',
  *             schema:
  *               $ref: '#/components/schemas/Error'
  */
-router.delete('/:id', 
+router.delete('/:id',
     auth_middleware.authenticate,
     listing_controller.delete_listing
 );

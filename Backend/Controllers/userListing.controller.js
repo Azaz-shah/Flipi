@@ -68,18 +68,13 @@ const createListing = async (req, res) => {
 
 const totalListing = async (req, res) => {
     try {
-        const listing = await prisma.listing.count()
+        const listings = await prisma.Listing.findMany()
 
-        if (!listing) {
-            return res.status(404).json({
-                status: "fail",
-                message: "No listing found"
-            })
-        }
         res.status(200).json({
             status: "success",
             data: {
-                listing
+                listing: listings,
+                count: listings.length
             }
         })
     } catch (error) {

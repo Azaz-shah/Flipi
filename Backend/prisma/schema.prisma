@@ -26,7 +26,9 @@ model Listing {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   title String
   plateform String 
-  userName String
+  userName String 
+  isVerified Boolean @default(false)
+  isMonetized Boolean @default(false)
   category String
   followers Int
   Engagement_Rate Float
@@ -35,5 +37,9 @@ model Listing {
   age Int
   price Int
   description String
+  isActive Boolean @default(true)
+  sold Boolean @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 

@@ -1,3 +1,4 @@
+const { verify } = require("crypto");
 const joi = require("joi");
 
 const listing_creation_schema = joi.object({
@@ -11,7 +12,11 @@ const listing_creation_schema = joi.object({
     country: joi.string().min(2).max(50).required(),
     age: joi.number().integer().min(13).max(100).required(),
     price: joi.number().integer().min(1).required(),
-    description: joi.string().min(10).max(500).required()
+    description: joi.string().min(10).max(500).required(),
+    isVerified: joi.boolean().required(),
+    isMonetized: joi.boolean().required(),
+    isActive: joi.boolean().required(),
+    sold: joi.boolean().required()
 });
 
 const listing_update_schema = joi.object({

@@ -1,5 +1,6 @@
 const listing_data_repository = require('../data_repositories/listing.data_repository');
 const email_service = require('../utils/email.service');
+const socket_service = require('../utils/socket.service');
 const redis = require('../_core_app_connectivities/redis');
 const rabbitmq_ops = require('../_core_app_connectivities/rabbitmq');
 
@@ -27,6 +28,9 @@ class listing_service {
                         console.error(`FILE: listing.service.js | create_listing | Failed to send listing notification:`, error);
                     });
             }
+            
+            // Emit socket notification for new listing
+            socket_service.emit_listing_created(listing);
             
             console.log(`FILE: listing.service.js | create_listing | Listing created successfully: ${listing.id}`);
             return listing;
@@ -122,6 +126,9 @@ class listing_service {
             
             // Clear cache after update
             await this.clear_listings_cache();
+            
+            // Emit socket notification for updated listing
+            socket_service.emit_listing_updated(listing);
             
             console.log(`FILE: listing.service.js | update_listing | Listing updated successfully: ${listing_id}`);
             return listing;

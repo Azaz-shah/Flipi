@@ -1,14 +1,27 @@
-require('dotenv').config();
 const express = require('express');
-const { swaggerUi, specs } = require('./utils/swagger.config');
+const cors = require("cors")
 
-// Initialize event-driven services
-const listing_queue_service = require('./event_driven_services/listing_queue.service');
+const { swaggerUi, specs } = require('./utils/swagger.config');
+const socket_service = require('./utils/socket.service');
+
+require('dotenv').config();
+const http = require('http');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const server = http.createServer(app);
 
+// Initialize Socket.IO
+socket_service.init(server);
+
+// Initialize event-driven services
+// const listing_queue_service = require('./event_driven_services/listing_queue.service');
+
+
+const PORT = process.env.PORT || 3000;
 app.use(express.json());
+app.use(cors(
+    "*"
+))
 
 // Swagger Documentation
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs, {
@@ -30,9 +43,10 @@ app.get('/', (req, res) => {
         ERROR_CODE: "",
         ERROR_FILTER: "",
         ERROR_DESCRIPTION: "",
-        DB_DATA: { 
+        DB_DATA: {
             message: "Flipi Backend API is running",
-            documentation: "/api-docs"
+            documentation: "/api-docs",
+            socket_clients: socket_service.get_connected_clients_count()
         }
     });
 });
@@ -41,7 +55,8 @@ app.get('/', (req, res) => {
 app.use("/api/users", require("./routes/user.route"));
 app.use("/api/listings", require("./routes/listing.route"));
 
-app.listen(PORT, () => {
+
+server.listen(PORT, () => {
     console.log(`FILE: app.js | server_start | Server is listening at http://localhost:${PORT}`);
     console.log(`FILE: app.js | server_start | API Documentation available at http://localhost:${PORT}/api-docs`);
 });
